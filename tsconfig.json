@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"noImplicitAny": false,
+		"removeComments": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"allowJs": true,
+		"jsx": "react",
+		"sourceMap": true,
+		"outDir": "./dist",
+		"strict": true,
+		"esModuleInterop": true,
+		"paths": {
+			"@": ["src/*"]
+		}
+	}
+}
