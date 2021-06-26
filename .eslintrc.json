@@ -39,20 +39,10 @@
 		"react/prop-types": "off",
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
-		"import/extensions": [
-			"error",
-			"ignorePackages",
-			{
-				"ts": "never",
-				"tsx": "never"
-			}
-		],
+		"import/extensions": "off",
 		"prettier/prettier": "error"
 	},
 	"settings": {
-		"import/resolver": {
-			"typescript": {}
-		},
 		"react": {
 			"version": "detect"
 		}

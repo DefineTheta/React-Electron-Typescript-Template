@@ -6,6 +6,8 @@ import installExtension, {
 	REDUX_DEVTOOLS,
 } from 'electron-devtools-installer';
 
+import connect from '#/loaders/db';
+
 let mainWindow: Electron.BrowserWindow | null;
 
 function createWindow() {
@@ -47,5 +49,7 @@ app
 				.then((name) => console.log(`Added Extension:  ${name}`))
 				.catch((err) => console.log('An error occurred: ', err));
 		}
+
+		connect();
 	});
 app.allowRendererProcessReuse = true;
