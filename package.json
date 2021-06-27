@@ -89,6 +89,7 @@
 		"app-root-path": "^3.0.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
+		"react-router-dom": "^5.2.0",
 		"reflect-metadata": "^0.1.13",
 		"sqlite3": "^5.0.2",
 		"styled-components": "^5.1.1",
