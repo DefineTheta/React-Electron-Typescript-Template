@@ -75,4 +75,11 @@ typings/
 # FuseBox cache
 .fusebox/
 
+# Complied distribution files
 dist/
+
+# SQLite Databse files
+db/
+
+# Packaged electron app
+packages/

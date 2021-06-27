@@ -11,8 +11,8 @@
 		"start:electron": "electron .",
 		"build": "npm-run-all build:electron build:react",
 		"build:run": "npm-run-all build start:electron",
-		"build:electron": "webpack --config webpack/electron.webpack.js",
-		"build:react": "webpack --config webpack/react.webpack.js",
+		"build:electron": "webpack --config webpack/electron.webpack.js --mode production",
+		"build:react": "webpack --config webpack/react.webpack.js --mode production",
 		"package": "npm-run-all build package:dist",
 		"package:dist": "electron-builder --dir",
 		"test": "jest"
@@ -22,6 +22,8 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@babel/core": "^7.9.0",
+		"@babel/plugin-proposal-class-properties": "^7.14.5",
+		"@babel/plugin-transform-runtime": "^7.14.5",
 		"@babel/preset-env": "^7.9.5",
 		"@babel/preset-react": "^7.9.4",
 		"@babel/preset-typescript": "^7.9.0",
@@ -32,6 +34,7 @@
 		"@testing-library/react": "^10.4.3",
 		"@types/electron-devtools-installer": "^2.2.0",
 		"@types/jest": "^26.0.3",
+		"@types/node": "^15.12.4",
 		"@types/react": "^16.9.34",
 		"@types/react-dom": "^16.9.6",
 		"@types/styled-components": "^5.1.0",
@@ -43,6 +46,7 @@
 		"cross-env": "^7.0.2",
 		"css-loader": "^5.2.6",
 		"cz-conventional-changelog": "3.2.0",
+		"dotenv-webpack": "^7.0.3",
 		"electron": "^8.2.2",
 		"electron-builder": "^22.7.0",
 		"electron-devtools-installer": "^3.1.1",
@@ -81,9 +85,14 @@
 		"webpack-dev-server": "^3.10.3"
 	},
 	"dependencies": {
+		"@babel/runtime": "^7.14.6",
+		"app-root-path": "^3.0.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
-		"styled-components": "^5.1.1"
+		"reflect-metadata": "^0.1.13",
+		"sqlite3": "^5.0.2",
+		"styled-components": "^5.1.1",
+		"typeorm": "^0.2.34"
 	},
 	"build": {
 		"appId": "your.id",
@@ -105,8 +114,6 @@
 	},
 	"husky": {
 		"hooks": {
-			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-			"prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
 			"pre-commit": "lint-staged"
 		}
 	},

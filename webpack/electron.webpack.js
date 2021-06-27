@@ -1,10 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin').TsconfigPathsPlugin;
 
 const rootPath = path.resolve(__dirname, '..');
 
 module.exports = {
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
+		plugins: [new TsconfigPathsPlugin()],
 	},
 	devtool: 'source-map',
 	entry: path.resolve(rootPath, 'electron', 'main.ts'),
@@ -20,6 +24,9 @@ module.exports = {
 			},
 		],
 	},
+	externals: {
+		typeorm: 'commonjs typeorm',
+	},
 	node: {
 		__dirname: false,
 	},
@@ -27,4 +34,10 @@ module.exports = {
 		path: path.resolve(rootPath, 'dist'),
 		filename: '[name].js',
 	},
+	plugins: [
+		new Dotenv({ path: rootPath + '/env/electron.env' }),
+		new webpack.DefinePlugin({
+			'process.env.ROOT_PATH': JSON.stringify(rootPath),
+		}),
+	],
 };
