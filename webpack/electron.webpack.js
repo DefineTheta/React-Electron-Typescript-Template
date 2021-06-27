@@ -34,5 +34,10 @@ module.exports = {
 		path: path.resolve(rootPath, 'dist'),
 		filename: '[name].js',
 	},
-	plugins: [new Dotenv({ path: rootPath + '/env/electron.env' })],
+	plugins: [
+		new Dotenv({ path: rootPath + '/env/electron.env' }),
+		new webpack.DefinePlugin({
+			'process.env.ROOT_PATH': JSON.stringify(rootPath),
+		}),
+	],
 };

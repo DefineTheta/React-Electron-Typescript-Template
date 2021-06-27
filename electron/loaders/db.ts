@@ -1,5 +1,4 @@
 import { createConnection, ConnectionOptions, Connection } from 'typeorm';
-import ROOT_PATH from 'app-root-path';
 
 class DatabaseManager {
 	#connection!: Connection;
@@ -24,7 +23,7 @@ class DatabaseManager {
 
 const db = new DatabaseManager({
 	type: 'sqlite',
-	database: ROOT_PATH + process.env.DEV_DB_PATH,
+	database: process.env.ROOT_PATH + process.env.DEV_DB_PATH,
 	logging: false,
 });
 export default db;
