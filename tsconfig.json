@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "es5",
+		"target": "ESNext",
 		"module": "commonjs",
 		"lib": ["DOM", "DOM.Iterable", "ESNext"],
 		"noImplicitAny": false,
@@ -13,8 +13,11 @@
 		"outDir": "./dist",
 		"strict": true,
 		"esModuleInterop": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
 		"paths": {
-			"@": ["src/*"]
+			"@/*": ["src/*"],
+			"#/*": ["electron/*"]
 		}
 	}
 }
