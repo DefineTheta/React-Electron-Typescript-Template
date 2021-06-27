@@ -80,3 +80,6 @@ dist/
 
 # SQLite Databse files
 db/
+
+# Packaged electron app
+packages/
