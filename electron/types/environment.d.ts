@@ -2,8 +2,9 @@ declare global {
 	namespace NodeJS {
 		interface ProcessEnv {
 			NODE_ENV: 'development' | 'production';
-			DEV_DB_PATH: string;
 			ROOT_PATH: string;
+			DEV_DB_PATH: string;
+			PROD_DB_PATH: string;
 		}
 	}
 }

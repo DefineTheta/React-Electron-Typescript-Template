@@ -40,7 +40,7 @@ function createWindow() {
 app
 	.on('ready', createWindow)
 	.whenReady()
-	.then(() => {
+	.then(async () => {
 		if (process.env.NODE_ENV === 'development') {
 			installExtension(REACT_DEVELOPER_TOOLS)
 				.then((name) => console.log(`Added Extension:  ${name}`))
@@ -50,6 +50,6 @@ app
 				.catch((err) => console.log('An error occurred: ', err));
 		}
 
-		DatabaseManager.init();
+		await DatabaseManager.init();
 	});
 app.allowRendererProcessReuse = true;

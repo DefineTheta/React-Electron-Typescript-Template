@@ -1,4 +1,5 @@
 import { createConnection, ConnectionOptions, Connection } from 'typeorm';
+import { app } from 'electron';
 
 class DatabaseManager {
 	#connection!: Connection;
@@ -21,9 +22,15 @@ class DatabaseManager {
 	}
 }
 
+const dbPath =
+	process.env.NODE_ENV === 'development'
+		? process.env.ROOT_PATH + process.env.DEV_DB_PATH
+		: app.getPath('userData') + process.env.PROD_DB_PATH;
+
 const db = new DatabaseManager({
 	type: 'sqlite',
-	database: process.env.ROOT_PATH + process.env.DEV_DB_PATH,
+	database: dbPath,
 	logging: false,
 });
+
 export default db;
